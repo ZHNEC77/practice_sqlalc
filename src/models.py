@@ -42,6 +42,8 @@ class WorkersOrm(Base):
     id: Mapped[intpk]
     username: Mapped[str]
 
+    resumes: Mapped[list["ResumesOrm"]] = relationship()
+
 
 class ResumesOrm(Base):
     __tablename__ = "resumes"
@@ -54,6 +56,8 @@ class ResumesOrm(Base):
         ForeignKey("workers.id", ondelete="CASCADE"))
     created_at: Mapped[created_at]
     updated_at: Mapped[updated_at]
+
+    worker: Mapped["WorkersOrm"] = relationship()
 
 
 metadata_obj = MetaData()
