@@ -59,6 +59,9 @@ class ResumesOrm(Base):
 
     worker: Mapped["WorkersOrm"] = relationship()
 
+    repr_cols_num = 4
+    repr_cols = ("created_at",)
+
 
 metadata_obj = MetaData()
 
